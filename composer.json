@@ -1,0 +1,40 @@
+{
+  "name": "ysh/yflow",
+  "description": "This is a PHP-based workflow engine, inspired by Warm-Flow.",
+  "type": "library",
+  "keywords": [
+    "workflow",
+    "work flow engine"
+  ],
+  "license": "Apache-2.0",
+  "autoload": {
+    "psr-4": {
+      "Yflow\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/"
+    }
+  },
+  "minimum-stability": "dev",
+  "authors": [
+    {
+      "name": "acehua",
+      "email": "974988176@qq.com"
+    }
+  ],
+  "require": {
+    "php": ">=8.1",
+    "symfony/expression-language": "^6.0",
+    "php-di/php-di": "7.0",
+    "illuminate/database": "^10.0 || ^11.0 || ^12.0 || ^13.0",
+    "symfony/var-dumper": "^6.0",
+    "ext-json": "*",
+    "ext-bcmath": "*"
+  },
+  "require-dev": {
+    "webman/database": "^2.1",
+    "phpunit/phpunit": "^9.6"
+  }
+}

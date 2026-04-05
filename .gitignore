@@ -1,0 +1,13 @@
+.phpunit.result.cache
+TODO.TXT
+/.idea
+/.vscode
+/runtime
+/vendor
+*.log
+.env
+/tests/tmp
+/tests/.phpunit.result.cache
+/java/
+/.phpunit.result.cache
+/.phpunit.cache
