@@ -1,5 +1,4 @@
 .phpunit.result.cache
-TODO.TXT
 /.idea
 /.vscode
 /runtime
@@ -11,3 +10,4 @@ TODO.TXT
 /java/
 /.phpunit.result.cache
 /.phpunit.cache
+composer.lock
