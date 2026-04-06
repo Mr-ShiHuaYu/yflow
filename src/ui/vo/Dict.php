@@ -96,8 +96,8 @@ class Dict implements JsonSerializable
     public function jsonSerialize(): array
     {
         return [
-            'label' => $this->label,
-            'value' => $this->value,
+            'label'     => $this->label,
+            'value'     => $this->value,
             'childList' => $this->childList,
         ];
     }

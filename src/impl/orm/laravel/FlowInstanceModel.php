@@ -2,10 +2,10 @@
 
 namespace Yflow\impl\orm\laravel;
 
-use Yflow\core\FlowEngine;
-use Yflow\core\orm\dao\IFlowInstanceDao;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Yflow\core\FlowEngine;
+use Yflow\core\orm\dao\IFlowInstanceDao;
 
 class FlowInstanceModel extends FlowBaseModel implements IFlowInstanceDao
 {
@@ -45,15 +45,15 @@ class FlowInstanceModel extends FlowBaseModel implements IFlowInstanceDao
     /**
      * 类型转换
      */
-    protected $casts = [
-        'id' => 'string',
-        'definition_id' => 'string',
-        'node_type' => 'integer',
+    protected      $casts      = [
+        'id'              => 'string',
+        'definition_id'   => 'string',
+        'node_type'       => 'integer',
         'activity_status' => 'integer',
     ];
-    private string $flowName = '';
+    private string $flowName   = '';
     private string $formCustom = '';
-    private string $formPath = '';
+    private string $formPath   = '';
 
     /**
      * 获取 ID

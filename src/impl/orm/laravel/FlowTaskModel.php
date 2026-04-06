@@ -2,9 +2,9 @@
 
 namespace Yflow\impl\orm\laravel;
 
-use Yflow\core\orm\dao\IFlowTaskDao;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Yflow\core\orm\dao\IFlowTaskDao;
 
 
 /**
@@ -12,10 +12,10 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  */
 class FlowTaskModel extends FlowBaseModel implements IFlowTaskDao
 {
-    private string $flowName = '';
-    private string $businessId = '';
+    private string $flowName       = '';
+    private string $businessId     = '';
     private ?array $permissionList = null;
-    public ?array $userList = null;
+    public ?array  $userList       = null;
     /**
      * 数据表主键
      */
@@ -50,10 +50,10 @@ class FlowTaskModel extends FlowBaseModel implements IFlowTaskDao
      * 类型转换
      */
     protected $casts = [
-        'id' => 'string',
+        'id'            => 'string',
         'definition_id' => 'string',
-        'instance_id' => 'string',
-        'node_type' => 'integer',
+        'instance_id'   => 'string',
+        'node_type'     => 'integer',
     ];
 
     /**

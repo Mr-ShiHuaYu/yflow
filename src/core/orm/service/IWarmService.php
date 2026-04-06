@@ -18,7 +18,7 @@
 
 namespace Yflow\core\orm\service;
 
-use support\Model;
+use Illuminate\Database\Eloquent\Model;
 use Yflow\core\orm\agent\WarmQuery;
 use Yflow\core\orm\dao\IFlowBaseDao;
 use Yflow\core\utils\page\Page;

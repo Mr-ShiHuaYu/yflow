@@ -62,7 +62,7 @@ class DefaultDataFillHandler implements DataFillHandler
 
         // 获取办理人
         $permissionHandler = FlowEngine::permissionHandler();
-        $handler = null;
+        $handler           = null;
         if ($permissionHandler !== null) {
             $handler = $permissionHandler->getHandler();
         }
@@ -101,7 +101,7 @@ class DefaultDataFillHandler implements DataFillHandler
 
         // 获取办理人
         $permissionHandler = FlowEngine::permissionHandler();
-        $handler = null;
+        $handler           = null;
         if ($permissionHandler !== null) {
             $handler = $permissionHandler->getHandler();
         }

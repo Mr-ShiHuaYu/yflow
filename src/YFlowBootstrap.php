@@ -2,6 +2,8 @@
 
 namespace Yflow;
 
+use Exception;
+use Phar;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
 use ReflectionClass;
@@ -60,8 +62,8 @@ class YFlowBootstrap
     private static function getBasePath(): string
     {
         $basePath = '';
-        if (class_exists(\Phar::class)) {
-            $basePath = \Phar::running();
+        if (class_exists(Phar::class)) {
+            $basePath = Phar::running();
         }
         if (empty($basePath)) {
             $basePath = getcwd();
@@ -106,7 +108,7 @@ class YFlowBootstrap
     /**
      * 扫描并注册带有 Bean 注解的类到容器
      * @param array $scanDirectories 扫描bean的目录数组
-     * @throws \Exception
+     * @throws Exception
      */
     private static function scanAndRegisterBeans(array $scanDirectories = []): void
     {

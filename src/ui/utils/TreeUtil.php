@@ -20,7 +20,7 @@ class TreeUtil
     public static function buildTree(array $trees): array
     {
         $returnList = [];
-        $tempList = array_map(function(Tree $tree) {
+        $tempList   = array_map(function (Tree $tree) {
             return $tree->getId();
         }, $trees);
 

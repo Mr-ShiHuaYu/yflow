@@ -2,8 +2,8 @@
 
 namespace Yflow\impl\orm\laravel;
 
-use Yflow\core\orm\dao\IFlowSkipDao;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Yflow\core\orm\dao\IFlowSkipDao;
 
 /**
  * 节点跳转关联表模型
@@ -46,9 +46,9 @@ class FlowSkipModel extends FlowBaseModel implements IFlowSkipDao
      * 类型转换
      */
     protected $casts = [
-        'id' => 'string',
-        'definition_id' => 'string',
-        'now_node_type' => 'integer',
+        'id'             => 'string',
+        'definition_id'  => 'string',
+        'now_node_type'  => 'integer',
         'next_node_type' => 'integer',
     ];
 

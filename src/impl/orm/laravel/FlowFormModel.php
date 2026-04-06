@@ -39,7 +39,7 @@ class FlowFormModel extends FlowBaseModel implements IFlowFormDao
      * 类型转换
      */
     protected $casts = [
-        'id' => 'string',
+        'id'         => 'string',
         'is_publish' => 'integer',
     ];
 

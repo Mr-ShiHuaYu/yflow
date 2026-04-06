@@ -18,7 +18,7 @@
 
 namespace Yflow\core\orm\service\impl;
 
-use support\Model;
+use Illuminate\Database\Eloquent\Model;
 use Yflow\core\FlowEngine;
 use Yflow\core\orm\agent\WarmQuery;
 use Yflow\core\orm\dao\IFlowBaseDao;
@@ -167,7 +167,8 @@ abstract class WarmServiceImpl implements IWarmService
         if (method_exists($entity, "toArray")) {
             $entity = $entity->toArray();
         }
-        $result = $this->getDao()->insert($entity);
+        $baseDao = $this->getDao();
+        $result  = $baseDao->insert($entity);
         return SqlHelper::retBool($result);
     }
 

@@ -149,11 +149,11 @@ class HandlerAuth implements JsonSerializable
     public function jsonSerialize(): array
     {
         return [
-            'storageId' => $this->storageId,
+            'storageId'   => $this->storageId,
             'handlerCode' => $this->handlerCode,
             'handlerName' => $this->handlerName,
-            'groupName' => $this->groupName,
-            'createTime' => $this->createTime,
+            'groupName'   => $this->groupName,
+            'createTime'  => $this->createTime,
         ];
     }
 }

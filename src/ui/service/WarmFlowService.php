@@ -2,6 +2,7 @@
 
 namespace Yflow\ui\service;
 
+use Exception;
 use Yflow\core\constant\ExceptionCons;
 use Yflow\core\dto\ApiResult;
 use Yflow\core\dto\DefJson;
@@ -26,7 +27,6 @@ use Yflow\ui\vo\HandlerFeedBackVo;
 use Yflow\ui\vo\HandlerSelectVo;
 use Yflow\ui\vo\NodeExt;
 use Yflow\ui\vo\WarmFlowVo;
-use Exception;
 
 /**
  * 设计器Controller 可选择是否放行，放行可与业务系统共享权限，主要是用来访问业务系统数据
@@ -42,13 +42,13 @@ class WarmFlowService
     public static function config(): ApiResult
     {
         $warmFlowVo = new WarmFlowVo();
-        $warmFlow = FlowEngine::getFlowConfig();
+        $warmFlow   = FlowEngine::getFlowConfig();
         // 获取tokenName
         $tokenName = $warmFlow->getTokenName();
         if (StringUtils::isEmpty($tokenName)) {
             return ApiResult::fail("未配置tokenName");
         }
-        $tokenNames = explode(",", $tokenName);
+        $tokenNames    = explode(",", $tokenName);
         $tokenNameList = array_filter($tokenNames, function ($item) {
             return StringUtils::isNotEmpty($item);
         });
@@ -234,7 +234,7 @@ class WarmFlowService
             $handlerDictService = FrameInvoker::getBean(HandlerDictService::class);
             if ($handlerDictService === null) {
                 $dictList = [];
-                $dict = new Dict();
+                $dict     = new Dict();
                 $dict->setLabel("默认表达式");
                 $dict->setValue('${handler}');
                 $dict1 = new Dict();

@@ -2,8 +2,8 @@
 
 namespace Yflow\impl\orm\laravel;
 
-use Yflow\core\orm\dao\IFlowUserDao;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Yflow\core\orm\dao\IFlowUserDao;
 
 /**
  * 流程用户表模型
@@ -39,8 +39,8 @@ class FlowUserModel extends FlowBaseModel implements IFlowUserDao
      * 类型转换
      */
     protected $casts = [
-        'id' => 'string',
-        'type' => 'string',
+        'id'         => 'string',
+        'type'       => 'string',
         'associated' => 'string',
     ];
 

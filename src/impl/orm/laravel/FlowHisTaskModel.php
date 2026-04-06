@@ -2,15 +2,15 @@
 
 namespace Yflow\impl\orm\laravel;
 
-use Yflow\core\orm\dao\IFlowHisTaskDao;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Yflow\core\orm\dao\IFlowHisTaskDao;
 
 
 class FlowHisTaskModel extends FlowBaseModel implements IFlowHisTaskDao
 {
-    private string $flowName = '';
+    private string $flowName   = '';
     private string $businessId = '';
-    private array $permissionList;
+    private array  $permissionList;
 
     public function __construct()
     {
@@ -52,8 +52,8 @@ class FlowHisTaskModel extends FlowBaseModel implements IFlowHisTaskDao
         'ext',
         'create_time',
         'update_time',
-//        'create_by',
-//        'update_by',
+        //        'create_by',
+        //        'update_by',
         'del_flag',
         'tenant_id',
     ];
@@ -62,11 +62,11 @@ class FlowHisTaskModel extends FlowBaseModel implements IFlowHisTaskDao
      * 类型转换
      */
     protected $casts = [
-        'id' => 'string',
-        'definition_id' => 'string',
-        'instance_id' => 'string',
-        'task_id' => 'string',
-        'node_type' => 'integer',
+        'id'             => 'string',
+        'definition_id'  => 'string',
+        'instance_id'    => 'string',
+        'task_id'        => 'string',
+        'node_type'      => 'integer',
         'cooperate_type' => 'integer',
     ];
 
@@ -74,7 +74,6 @@ class FlowHisTaskModel extends FlowBaseModel implements IFlowHisTaskDao
      * 是否自动维护时间戳
      */
     public $timestamps = false;
-
 
 
     /**

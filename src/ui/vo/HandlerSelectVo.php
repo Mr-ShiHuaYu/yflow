@@ -2,9 +2,9 @@
 
 namespace Yflow\ui\vo;
 
+use JsonSerializable;
 use Yflow\core\dto\FlowPage;
 use Yflow\core\dto\Tree;
-use JsonSerializable;
 
 /**
  * 流程设计器-办理人选择
@@ -72,7 +72,7 @@ class HandlerSelectVo implements JsonSerializable
     public function jsonSerialize(): array
     {
         return [
-            'handlerAuths' => $this->handlerAuths,
+            'handlerAuths'   => $this->handlerAuths,
             'treeSelections' => $this->treeSelections,
         ];
     }

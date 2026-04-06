@@ -26,7 +26,6 @@ trait HandlerSelectServiceTrait
      * 办理人权限名称回显，兼容老项目，新项目重写提高性能
      * 通过的,但性能不好,建议结合业务系统自己重写,参考 @param array<string> $storageIds 入库主键集合
      * @return array<HandlerFeedBackVo> 结果
-     *@see \plugin\yflow\app\service\HandlerSelectServiceImpl::handlerFeedbackBak 方法
      */
     public function handlerFeedback(array $storageIds): array
     {
@@ -34,7 +33,7 @@ trait HandlerSelectServiceTrait
         if (CollUtil::isEmpty($storageIds)) {
             return $handlerFeedBackVos;
         }
-        $authMap = [];
+        $authMap      = [];
         $handlerTypes = $this->getHandlerType();
         if (CollUtil::isEmpty($handlerTypes)) {
             return $handlerFeedBackVos;
@@ -45,7 +44,7 @@ trait HandlerSelectServiceTrait
             $handlerSelectVo = $this->getHandlerSelect($handlerQuery);
             if (ObjectUtil::isNotNull($handlerSelectVo)) {
                 $handlerAuths = $handlerSelectVo->getHandlerAuths();
-                $rows = $handlerAuths->getRows();
+                $rows         = $handlerAuths->getRows();
                 if (CollUtil::isNotEmpty($rows)) {
                     foreach ($rows as $row) {
                         $authMap[$row->getStorageId()] = $row->getHandlerName();

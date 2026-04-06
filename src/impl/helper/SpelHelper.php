@@ -2,10 +2,10 @@
 
 namespace Yflow\impl\helper;
 
-use Yflow\core\exception\FlowException;
-use Yflow\core\invoker\FrameInvoker;
 use Exception;
 use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
+use Yflow\core\exception\FlowException;
+use Yflow\core\invoker\FrameInvoker;
 
 /**
  * Spel表达式解析助手
@@ -96,7 +96,7 @@ class SpelHelper
         if (preg_match($pattern, $expression, $matches)) {
             $objectName = $matches[1];
             $methodName = $matches[2];
-            $args = $matches[3];
+            $args       = $matches[3];
 
             // 检查对象是否存在
             if (isset($variables[$objectName]) && is_object($variables[$objectName])) {
@@ -106,7 +106,7 @@ class SpelHelper
                 if (method_exists($object, $methodName)) {
                     // 解析参数
                     $parsedArgs = [];
-                    $argList = explode(',', $args);
+                    $argList    = explode(',', $args);
                     foreach ($argList as $arg) {
                         $arg = trim($arg);
                         // 检查参数是否是变量

@@ -295,7 +295,7 @@ class StringUtils
         for ($i = 0; $i < $len; $i++) {
             $c = $str[$i];
             if ($i > 0) {
-                $preChar = $str[$i - 1];
+                $preChar            = $str[$i - 1];
                 $preCharIsUpperCase = ord($preChar) >= 65 && ord($preChar) <= 90;
             } else {
                 $preCharIsUpperCase = false;
@@ -304,7 +304,7 @@ class StringUtils
             $curreCharIsUpperCase = ord($c) >= 65 && ord($c) <= 90;
 
             if ($i < ($len - 1)) {
-                $nextChar = $str[$i + 1];
+                $nextChar             = $str[$i + 1];
                 $nexteCharIsUpperCase = ord($nextChar) >= 65 && ord($nextChar) <= 90;
             }
 

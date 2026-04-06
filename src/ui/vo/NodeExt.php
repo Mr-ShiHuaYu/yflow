@@ -149,10 +149,10 @@ class NodeExt implements JsonSerializable
     public function jsonSerialize(): array
     {
         return [
-            'code' => $this->code,
-            'name' => $this->name,
-            'desc' => $this->desc,
-            'type' => $this->type,
+            'code'   => $this->code,
+            'name'   => $this->name,
+            'desc'   => $this->desc,
+            'type'   => $this->type,
             'childs' => $this->childs,
         ];
     }

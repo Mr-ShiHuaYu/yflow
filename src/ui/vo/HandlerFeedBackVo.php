@@ -30,7 +30,7 @@ class HandlerFeedBackVo implements JsonSerializable
      */
     public function __construct(?string $storageId = null, ?string $handlerName = null)
     {
-        $this->storageId = $storageId;
+        $this->storageId   = $storageId;
         $this->handlerName = $handlerName;
     }
 
@@ -81,7 +81,7 @@ class HandlerFeedBackVo implements JsonSerializable
     public function jsonSerialize(): array
     {
         return [
-            'storageId' => $this->storageId,
+            'storageId'   => $this->storageId,
             'handlerName' => $this->handlerName,
         ];
     }

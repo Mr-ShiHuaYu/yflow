@@ -25,6 +25,7 @@ use Yflow\core\utils\page\Page;
 /**
  * IFlowBaseDao - BaseMapper 接口
  *
+ * @method insert(mixed $entity)
  */
 interface IFlowBaseDao
 {

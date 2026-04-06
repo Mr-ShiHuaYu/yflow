@@ -199,13 +199,13 @@ class ChildNode implements JsonSerializable
     public function jsonSerialize(): array
     {
         return [
-            'code' => $this->code,
-            'desc' => $this->desc,
-            'label' => $this->label,
-            'type' => $this->type,
-            'must' => $this->must,
+            'code'     => $this->code,
+            'desc'     => $this->desc,
+            'label'    => $this->label,
+            'type'     => $this->type,
+            'must'     => $this->must,
             'multiple' => $this->multiple,
-            'dict' => $this->dict,
+            'dict'     => $this->dict,
         ];
     }
 }

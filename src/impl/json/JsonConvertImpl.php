@@ -2,9 +2,10 @@
 
 namespace Yflow\impl\json;
 
+use ReflectionException;
+use RuntimeException;
 use Yflow\core\json\JsonConvert;
 use Yflow\core\utils\DtoUtil;
-use RuntimeException;
 
 class JsonConvertImpl implements JsonConvert
 {
@@ -34,7 +35,7 @@ class JsonConvertImpl implements JsonConvert
      * @param string $jsonStr json 字符串
      * @param string $clazz 类名
      * @return object|null
-     * @throws \ReflectionException
+     * @throws ReflectionException
      */
     public function strToBean(string $jsonStr, string $clazz): ?object
     {
@@ -148,7 +149,7 @@ class JsonConvertImpl implements JsonConvert
      * @param array $data 数据
      * @param string $clazz 类名
      * @return object|null
-     * @throws \ReflectionException
+     * @throws ReflectionException
      */
     public function mapToBean(array $data, string $clazz): object|null
     {

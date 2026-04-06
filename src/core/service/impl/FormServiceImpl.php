@@ -18,13 +18,12 @@
 
 namespace Yflow\core\service\impl;
 
-use support\Model;
+use Illuminate\Database\Eloquent\Model;
 use Yflow\core\constant\ExceptionCons;
 use Yflow\core\enums\PublishStatus;
 use Yflow\core\exception\FlowException;
 use Yflow\core\FlowEngine;
 use Yflow\core\invoker\FrameInvoker;
-use Yflow\core\orm\dao\IFlowDefinitionDao;
 use Yflow\core\orm\dao\IFlowFormDao;
 use Yflow\core\orm\service\impl\WarmServiceImpl;
 use Yflow\core\service\FormService;
@@ -43,7 +42,7 @@ class FormServiceImpl extends WarmServiceImpl implements FormService
 {
     public function __construct()
     {
-        $this->setDao(FrameInvoker::getBean(IFlowDefinitionDao::class));
+        $this->setDao(FrameInvoker::getBean(IFlowFormDao::class));
     }
 
     /**

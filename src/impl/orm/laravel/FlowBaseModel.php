@@ -2,11 +2,11 @@
 
 namespace Yflow\impl\orm\laravel;
 
+use Illuminate\Database\Eloquent\Model;
 use Yflow\core\orm\agent\WarmQuery;
 use Yflow\core\orm\dao\IFlowBaseDao;
 use Yflow\core\utils\ObjectUtil;
 use Yflow\core\utils\page\Page;
-use Illuminate\Database\Eloquent\Model;
 
 class FlowBaseModel extends Model implements IFlowBaseDao
 {

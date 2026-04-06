@@ -2,9 +2,9 @@
 
 namespace Yflow\impl\orm\laravel;
 
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Yflow\core\FlowEngine;
 use Yflow\core\orm\dao\IFlowNodeDao;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 
 class FlowNodeModel extends FlowBaseModel implements IFlowNodeDao
@@ -50,8 +50,8 @@ class FlowNodeModel extends FlowBaseModel implements IFlowNodeDao
      * 类型转换
      */
     protected $casts = [
-        'id' => 'string',
-        'node_type' => 'integer',
+        'id'            => 'string',
+        'node_type'     => 'integer',
         'definition_id' => 'string',
     ];
 

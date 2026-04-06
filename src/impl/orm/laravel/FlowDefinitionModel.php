@@ -2,8 +2,8 @@
 
 namespace Yflow\impl\orm\laravel;
 
-use Yflow\core\orm\dao\IFlowDefinitionDao;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Yflow\core\orm\dao\IFlowDefinitionDao;
 
 class FlowDefinitionModel extends FlowBaseModel implements IFlowDefinitionDao
 {
@@ -54,8 +54,8 @@ class FlowDefinitionModel extends FlowBaseModel implements IFlowDefinitionDao
      * 类型转换
      */
     protected $casts = [
-        'id' => 'string',
-        'is_publish' => 'integer',
+        'id'              => 'string',
+        'is_publish'      => 'integer',
         'activity_status' => 'integer',
     ];
 

@@ -35,8 +35,8 @@ class DictItem implements JsonSerializable
      */
     public function __construct(?string $label = null, ?string $value = null, bool $selected = false)
     {
-        $this->label = $label;
-        $this->value = $value;
+        $this->label    = $label;
+        $this->value    = $value;
         $this->selected = $selected;
     }
 
@@ -107,8 +107,8 @@ class DictItem implements JsonSerializable
     public function jsonSerialize(): array
     {
         return [
-            'label' => $this->label,
-            'value' => $this->value,
+            'label'    => $this->label,
+            'value'    => $this->value,
             'selected' => $this->selected,
         ];
     }

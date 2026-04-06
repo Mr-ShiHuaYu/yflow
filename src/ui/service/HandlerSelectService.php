@@ -12,7 +12,6 @@ use Yflow\ui\vo\HandlerSelectVo;
 /**
  * 流程设计器-获取办理人权限设置列表接口
  *
- *
  */
 interface HandlerSelectService
 {

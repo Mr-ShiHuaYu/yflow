@@ -21,7 +21,6 @@ namespace Yflow\core\invoker;
 use DI\Container;
 use DI\ContainerBuilder;
 use Exception;
-use Yflow\core\FlowEngine;
 
 /**
  * 获取 Bean 调用器

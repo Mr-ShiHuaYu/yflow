@@ -61,7 +61,7 @@ class HandlerFunDto
      */
     public function __construct(array $list, int $total)
     {
-        $this->list = $list;
+        $this->list  = $list;
         $this->total = $total;
     }
 
