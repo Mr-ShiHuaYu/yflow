@@ -41,6 +41,11 @@ class FrameInvoker
     private static ?array $defaultDependence = null;
 
     /**
+     * 缓存用户添加的依赖配置
+     */
+    private static array $userDependences = [];
+
+    /**
      * 缓存所有指定类型的Bean
      * @var array<string, array<object>>
      */
@@ -69,7 +74,9 @@ class FrameInvoker
                 self::$defaultDependence = require __DIR__ . '/../config/DefaultDependence.php';
             }
 
-            $builder->addDefinitions(self::$defaultDependence);
+            // 合并依赖配置，用户配置优先级高于默认配置
+            $dependences = array_merge(self::$defaultDependence, self::$userDependences);
+            $builder->addDefinitions($dependences);
             $builder->useAutowiring(true);
             $builder->useAttributes(true);
             self::$container = $builder->build();
@@ -129,15 +136,21 @@ class FrameInvoker
     }
 
     /**
-     * 批量添加依赖
+     * 批量添加依赖,可以覆盖默认依赖
      * @param array $beans
      * @return void
      * @throws Exception
      */
     public static function addDependences(array $beans): void
     {
-        foreach ($beans as $name => $bean) {
-            self::setBean($name, $bean);
+        if (self::$container === null) {
+            // 容器未初始化，存储到用户依赖中
+            self::$userDependences = array_merge(self::$userDependences, $beans);
+        } else {
+            // 容器已初始化，直接添加到容器中
+            foreach ($beans as $name => $bean) {
+                self::setBean($name, $bean);
+            }
         }
     }
 
