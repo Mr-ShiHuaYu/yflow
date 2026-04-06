@@ -4,21 +4,21 @@ namespace Tests;
 require_once __DIR__ . '/../vendor/autoload.php';
 require_once __DIR__ . '/../support/bootstrap.php';
 
-use app\bootstrap\FlowInit;
 use Yflow\core\dto\FlowParams;
 use Yflow\core\FlowEngine;
 use Yflow\core\listener\ListenerVariable;
 use Yflow\core\utils\ExpressionUtil;
 use Yflow\impl\helper\SpelHelper;
 use PHPUnit\Framework\TestCase;
+use Yflow\YFlowBootstrap;
 
 class ExpressionTest extends TestCase
 {
     public static function setUpBeforeClass(): void
     {
         parent::setUpBeforeClass();
-        // 加载 initFlow 静态方法
-        FlowInit::initFlow();
+
+        YFlowBootstrap::init();
     }
 
     /**
@@ -27,9 +27,9 @@ class ExpressionTest extends TestCase
     public function testSpel()
     {
         // OK
-        $map = [];
+        $map                     = [];
         $map['listenerVariable'] = new ListenerVariable();
-        $result = SpelHelper::parseExpression('#{@user.notify(#listenerVariable)}', $map);
+        $result                  = SpelHelper::parseExpression('#{@user.notify(#listenerVariable)}', $map);
         dump('SpelHelper结果:', $result);
         $this->assertTrue($result);
     }
@@ -62,9 +62,9 @@ class ExpressionTest extends TestCase
      */
     public function testListener()
     {
-        $variable3 = [];
+        $variable3                     = [];
         $variable3['listenerVariable'] = new ListenerVariable();
-        $result = ExpressionUtil::evalListener('#{@user.notify(#listenerVariable)}', $variable3);
+        $result                        = ExpressionUtil::evalListener('#{@user.notify(#listenerVariable)}', $variable3);
         $this->assertTrue($result); // notify方法返回void，所以结果为false
     }
 
@@ -74,20 +74,20 @@ class ExpressionTest extends TestCase
     public function testVariable()
     {
         // OK
-        $variable1 = [];
+        $variable1            = [];
         $variable1['handler'] = '101';
-        $result1 = ExpressionUtil::evalVariableByExp('#{@user.evalVar(#handler)}', $variable1);
+        $result1              = ExpressionUtil::evalVariableByExp('#{@user.evalVar(#handler)}', $variable1);
         dump('spel办理人表达式结果:', $result1);
         $this->assertEquals(['101'], $result1);
 
-        $variable2 = [];
+        $variable2            = [];
         $variable2['handler'] = FlowEngine::newTask()->setId(1);
-        $result2 = ExpressionUtil::evalVariableByExp('#{@user.evalVar(#handler)}', $variable2);
+        $result2              = ExpressionUtil::evalVariableByExp('#{@user.evalVar(#handler)}', $variable2);
         dump('spel办理人表达式结果:', $result2);
         $this->assertEquals(['1'], $result2);
 
         $addTasks = [];
-        $task = FlowEngine::newTask();
+        $task     = FlowEngine::newTask();
         $task->setPermissionList([
             '${handler1}',
             '#{@user.evalVar(#handler2)}',
@@ -99,12 +99,12 @@ class ExpressionTest extends TestCase
         ]);
         $addTasks[] = $task;
 
-        $variable = [];
+        $variable             = [];
         $variable['handler1'] = [4, '5', 100];
         $variable['handler2'] = 12;
         $variable['handler3'] = [9, '10', 102];
         $variable['handler4'] = '15';
-        $task = FlowEngine::newTask();
+        $task                 = FlowEngine::newTask();
         $variable['handler5'] = $task->setId(55);
 
         ExpressionUtil::evalVariable($addTasks, FlowParams::build()->variable($variable));
@@ -122,16 +122,16 @@ class ExpressionTest extends TestCase
     public function testVoteSign()
     {
         // OK
-        $variable = [];
-        $variable['flag'] = 56;
-        $variable['skipType'] = 'PASS';
-        $variable['passNum'] = 12;
-        $variable['rejectNum'] = 3;
-        $variable['todoNum'] = 2;
-        $variable['allNum'] = 20;
-        $variable['passList'] = [];
+        $variable               = [];
+        $variable['flag']       = 56;
+        $variable['skipType']   = 'PASS';
+        $variable['passNum']    = 12;
+        $variable['rejectNum']  = 3;
+        $variable['todoNum']    = 2;
+        $variable['allNum']     = 20;
+        $variable['passList']   = [];
         $variable['rejectList'] = [];
-        $variable['todoList'] = [];
+        $variable['todoList']   = [];
 
         $defaultResult = ExpressionUtil::evalVoteSign(
             'default@@${passNum * 1.0 / allNum > 0.5}', $variable
